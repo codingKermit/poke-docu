@@ -1,67 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 
 
 function Header(){
 
-    const [offset, setOffset] = useState(0);
-
-    const [limit, setLimit] = useState(20);
-
-    const [page, setPage] = useState(0);
-
-    const [pokemon, setPokemon] = useState([]);
-
-    const [next, setNext] = useState('');
-
-    const [prev, setPrev] = useState('');
-
-    const [count, setCount] = useState(0);
-
     const [keyword, setKeyword] = useState('');
 
     const changeKeyword = (e) =>{
         setKeyword(e.target.value);
     }
-
-    const getPoke = async () =>{
-
-        const calculatedOffset = limit * page;
-
-        let res = '';
-
-        if(next === ''){
-            res = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${calculatedOffset}`);
-        } else {
-            res = await axios.get(next);
-        }
-
-        console.log(res);
-
-        setNext(res.data.next);
-
-        setPrev(res.data.previous);
-
-        setCount(res.data.count);
-
-        setPokemon([...pokemon,...res?.data?.results]);
-
-        setPage((current)=> current + 1);
-
-    }
-
-    const changeOffset = (newOffset) =>{
-        setOffset(newOffset);
-    }
-
-    const changeLimit = (newLimit) =>{
-        setLimit(newLimit);
-    }
-
-    useEffect(()=>{
-        getPoke();
-    },[])
 
     useEffect(()=>{
         console.log(keyword);
