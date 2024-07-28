@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/codingKermit/poke-docu/static/css/main.b08faa58.css",
+    "main.js": "/codingKermit/poke-docu/static/js/main.588515b9.js",
+    "static/js/453.b6a76d05.chunk.js": "/codingKermit/poke-docu/static/js/453.b6a76d05.chunk.js",
+    "index.html": "/codingKermit/poke-docu/index.html",
+    "main.b08faa58.css.map": "/codingKermit/poke-docu/static/css/main.b08faa58.css.map",
+    "main.588515b9.js.map": "/codingKermit/poke-docu/static/js/main.588515b9.js.map",
+    "453.b6a76d05.chunk.js.map": "/codingKermit/poke-docu/static/js/453.b6a76d05.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b08faa58.css",
+    "static/js/main.588515b9.js"
+  ]
+}
