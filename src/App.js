@@ -3,8 +3,9 @@ import Header from "./layout/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './routes/Home'
 import Item from './routes/Items'
-import Machines from './routes/Machines'
+import Machine from './routes/Machine'
 import Move from './routes/Move'
+import { Container } from "react-bootstrap";
 
 function App() {
 
@@ -39,8 +40,10 @@ function App() {
 
   return (
     <div>
-      <Header/>
-      <RouterProvider router={router}/>
+      <Container>
+        <Header/>
+        <RouterProvider router={router}/>
+      </Container>
     </div>
   );
 }

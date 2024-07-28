@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import Pokemon from "../components/Pokemon";
 
 function Home(){
 
     const [offset, setOffset] = useState(0);
 
-    const [limit, setLimit] = useState(20);
+    const [limit, setLimit] = useState(30);
 
     const [page, setPage] = useState(0);
 
     const [pokemon, setPokemon] = useState([]);
 
-    // const [pokeInfo, setPokeInfo] = useState([]);
+    const [pokeInfo, setPokeInfo] = useState([]);
 
     const [next, setNext] = useState('');
 
@@ -31,8 +32,6 @@ function Home(){
         } else {
             res = await axios.get(next);
         }
-
-        // console.log(res);
 
         setNext(res.data.next);
 
@@ -58,24 +57,22 @@ function Home(){
         getPoke();
     },[])
 
-    useEffect(()=>{
-        getPokeInfos();
-    },[pokemon])
-
-    const getPokeInfos = async () =>{
-        for(const poke of pokemon){
-            const url = poke.url;
-            const pokeInfo = await axios.get(poke.url);
-            console.log(pokeInfo.data.sprites.other["official-artwork"].front_default);
-        }
-    }
-
     return(
-        <Container>
-            <div>
-                <h4>Hello I'm Home Router!</h4>
-            </div>
-        </Container>
+        <div>
+            <Container>
+                <Row xs={4} sm={4} md={6}>
+                    {pokemon.map((data)=>{
+                        return(
+                            <Pokemon
+                                key={data.name}
+                                url={data.url}
+                                name={data.name}
+                            ></Pokemon>
+                        )
+                    })}
+                </Row>
+            </Container>
+        </div>
     )
 }
 
