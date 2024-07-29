@@ -1,7 +1,8 @@
-import axios from "axios";
+// import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
-
+import { Link, NavLink } from "react-router-dom";
+import "../css/Header.css";
 
 function Header(){
 
@@ -66,7 +67,7 @@ function Header(){
 
     return(
         <div>
-            <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
+            <Navbar bg="light" sticky="top" expand="lg" className="bg-body-tertiary mb-3">
                 <Navbar.Brand>Poke-Docu</Navbar.Brand>
                 <Navbar.Toggle aria-controls="pokeDocu" />
                 <Navbar.Collapse id="pokeDocu">
@@ -75,12 +76,17 @@ function Header(){
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/Move">Move</Nav.Link>
-                        <Nav.Link href="/Type">Type</Nav.Link>
-                        <Nav.Link href="/Berry">Berry</Nav.Link>
-                        <Nav.Link href="/Item">Item</Nav.Link>
-                        <Nav.Link href="/Machine">Machine</Nav.Link>
+                        {/* <div className="gap-3 w-100 d-flex justify-content-center"> */}
+                        <div>
+
+                        {/* </div> */}
+                            <NavLink to={'/'}>Home</NavLink>
+                            <NavLink to={'/Move'}>Move</NavLink>
+                            <NavLink to={'/Type'}>Type</NavLink>
+                            <NavLink to={'/Berry'}>Berry</NavLink>
+                            <NavLink to={'/Item'}>Item</NavLink>
+                            <NavLink to={'/Machine'}>Machine</NavLink>
+                        </div>
                     </Nav>
                         <Form className="d-block">
                             <Form.Group controlId="keyword" className="d-flex mb-2">

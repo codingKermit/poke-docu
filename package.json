@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "gh-pages": "^6.1.1",
     "pokedex-promise-v2": "^4.2.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -16,13 +17,16 @@
     "react-intersection-observer": "^9.13.0",
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
+    "react-virtualized": "^9.22.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://codingKermit.github.io/poke-docu/"
 }

@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import Pokemon from "../components/Pokemon";
+import { useInView } from "react-intersection-observer";
 
 function Home(){
+
+    const { ref, inView } = useInView({
+        /* Optional options */
+        threshold: 0,
+      });
+
+      useEffect(()=>{
+        console.log('test')
+      },[inView])
 
     const [offset, setOffset] = useState(0);
 
@@ -71,6 +81,9 @@ function Home(){
                         )
                     })}
                 </Row>
+                <div style={{textAlign:'center'}}>
+                    <Spinner animation="grow" ref={ref} />
+                </div>
             </Container>
         </div>
     )
