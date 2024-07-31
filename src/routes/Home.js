@@ -9,11 +9,11 @@ function Home(){
     const { ref, inView } = useInView({
         /* Optional options */
         threshold: 0,
-      });
+    });
 
-      useEffect(()=>{
-        console.log('test')
-      },[inView])
+    useEffect(()=>{
+        getPoke();
+    },[inView])
 
     const [offset, setOffset] = useState(0);
 

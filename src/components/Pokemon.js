@@ -62,7 +62,7 @@ function Pokemon({url}){
         <div>
             <Card className="mb-3 text-center" >
                 <Link to={`/Pokemon/${pokeInfo.id}`}>
-                    {/* <Card.Img src={imgUrl} alt={name}/> */}
+                    <Card.Img src={imgUrl} alt={name}/>
                     <Card.Text>{name}</Card.Text>
                     <Card.Text className="mb-3">
                         {types.map((type, index)=><TypeButton key={type+index} type={type.val} text={type.text}/>)}

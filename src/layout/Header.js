@@ -1,69 +1,21 @@
-// import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../css/Header.css";
 
+
+
 function Header(){
 
-    const languageUrl = 'https://pokeapi.co/api/v2/language';
-
     const [keyword, setKeyword] = useState('');
-
-    const [languagesUrl, setLanguagesUrl] = useState('');
-
-    const [language, setLanguage] = useState('ko');
-
-    const [languageOptions, setLanguageOptions] = useState([]);
 
     const changeKeyword = (e) =>{
         setKeyword(e.target.value);
     }
 
     useEffect(()=>{
-
+        
     },[keyword])
-
-    // const getLanguages = async () =>{
-    //     const res = await axios.get(languageUrl);
-    //     setLanguagesUrl(res.data.results);
-    // }
-
-    // useEffect(()=>{
-    //     getLanguages();
-    // },[])
-    
-    // const changeLanguage = (e) =>{
-    //     setLanguage(e.target.value);
-    // }
-    
-    // useEffect(()=>{
-    //     setLanguageOptions([]);
-    //     changeLangOptions();
-    // },[language])
-
-    // useEffect(()=>{
-    //     changeLangOptions();
-    // },[languagesUrl])
-
-    // const changeLangOptions = async() => {
-    //     console.log(`===current language : ${language} ===`)
-    //     for(const data of languagesUrl){
-    //         const lang = await axios.get(data.url);
-    //         console.log(lang);
-    //         const filteredData = lang.data.names.filter( d => d.language.name == language);
-    //         if(filteredData.length > 0){
-    //             const langOptionText = filteredData[0].name;
-    //             const langOptonVal = lang.data.name;
-    //             const item = {
-    //                 'text' : langOptionText,
-    //                 'val' : langOptonVal
-    //             }
-    //             console.log(item);
-    //             setLanguageOptions((oldOptions)=> [...oldOptions, item]);
-    //         }
-    //     }
-    // }
 
     return(
         <div>
@@ -76,16 +28,13 @@ function Header(){
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        {/* <div className="gap-3 w-100 d-flex justify-content-center"> */}
-                        <div>
-
-                        {/* </div> */}
-                            <NavLink to={'/'}>Home</NavLink>
-                            <NavLink to={'/Move'}>Move</NavLink>
-                            <NavLink to={'/Type'}>Type</NavLink>
-                            <NavLink to={'/Berry'}>Berry</NavLink>
-                            <NavLink to={'/Item'}>Item</NavLink>
-                            <NavLink to={'/Machine'}>Machine</NavLink>
+                        <div className="gap-3 w-100 d-flex justify-content-center">
+                            <NavLink to={'/'} className='nav-link'>Home</NavLink>
+                            <NavLink to={'/Move'} className='nav-link'>Move</NavLink>
+                            <NavLink to={'/Type'} className='nav-link'>Type</NavLink>
+                            <NavLink to={'/Berry'} className='nav-link'>Berry</NavLink>
+                            <NavLink to={'/Item'} className='nav-link'>Item</NavLink>
+                            <NavLink to={'/Machine'} className='nav-link'>Machine</NavLink>
                         </div>
                     </Nav>
                         <Form className="d-block">
@@ -101,24 +50,6 @@ function Header(){
                                 />
                                 <Button type="submit">Search</Button>
                             </Form.Group>
-                            {/* <Form.Group className="d-flex gap-2">
-                                <Form.Select className="w-50 ms-auto" size="sm">
-                                    <option>Grid</option>
-                                    <option>List</option>
-                                </Form.Select>
-                                <Form.Select size="sm"
-                                    value={language}
-                                    onChange={changeLanguage}
-                                >
-                                    {languageOptions ? languageOptions?.map((data)=>{
-                                        return(
-                                            <option key={data.val} value={data.val}>
-                                                {data.text}
-                                            </option>
-                                        )
-                                    }) : null }
-                                </Form.Select>
-                            </Form.Group> */}
                         </Form>
                 </Navbar.Collapse>
             </Navbar>
